@@ -15,6 +15,16 @@
 
 Este é um repositório para armazenar soluções sobre problemas de grafos no leetcode. 
 
+| Exercicio | Dificuldade |  
+| -- | -- | 
+| 42 | Díficil | 
+| 894 | Média | 
+| 1255 | Difícil | 
+| 1277 | Média | 
+| 1526 | Difícil | 
+| 1611 | Difícil | 
+
+
 ## Screenshots
 ### 894. All Possible Full Binary Trees
 

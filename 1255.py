@@ -44,7 +44,7 @@ class Solution:
                 new_counts[char] -= required
             
             if can_take:
-                new_counts_tuple = [new_counts.get(chr(ord('a')), 0) for i in range(26)]
+                new_counts_tuple = [new_counts.get(chr(ord('a') + i), 0) for i in range(26)]
                 new_counts_tuple = tuple(new_counts_tuple)
                 
                 score_if_take = current_word_info['score'] + dp(index + 1, new_counts_tuple)
@@ -56,6 +56,6 @@ class Solution:
             return result
 
         
-        initial_counts_tuple = tuple(initial_counts.get(chr(ord('a')), 0) for i in range(26))
+        initial_counts_tuple = tuple(initial_counts.get(chr(ord('a') + i), 0) for i in range(26))
         
         return dp(0, initial_counts_tuple)
