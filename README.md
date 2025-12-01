@@ -1,5 +1,5 @@
 
-# Exercícios sobre Grafos 2
+# Exercícios sobre Programação Dinâmica
 
 **Conteúdo da Disciplina**: Programação Dinâmica <br>
 
