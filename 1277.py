@@ -1,0 +1,1 @@
+#contar quantas submatrizes quadradas contêm apenas 1s

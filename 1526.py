@@ -1,0 +1,1 @@
+# transformar o array inicial no array que será dado usando o menor número possível de operações.                  

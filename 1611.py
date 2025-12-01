@@ -1,0 +1,1 @@
+# achar o minimo numero de operaçoes para transformar o inteiro n em 0
