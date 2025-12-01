@@ -1,45 +1,36 @@
-from typing import List, Optional
+from typing import List, Optional, Dict
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+class Solution:
+    def __init__(self):
 
-    def __repr__(self):
-        return f"Node({self.val})"
+        self.memo: Dict[int, List[Optional[TreeNode]]] = {0: [], 1: [TreeNode(0)]}
 
-def tree_to_list(root: Optional[TreeNode]) -> List[Optional[int]]:
- 
-    if not root:
-        return []
-    
-    output = []
-    queue = [root]
-    
-    while queue:
-        node = queue.pop(0)
+    def allPossibleFBT(self, N: int) -> List[Optional[TreeNode]]:
         
-        if node:
-            output.append(node.val)
-            # Adiciona os filhos para manter a estrutura correta.
-            queue.append(node.left)
-            queue.append(node.right)
-        else:
-            output.append(None)
-
-    # Remove os 'None's finais
-    while output and output[-1] is None:
-        output.pop()
+        if N % 2 == 0:
+            return []
         
-    return output
+        if N in self.memo:
+            return self.memo[N]
+        
+        result = []
+        
+        for L in range(1, N, 2):
+            R = N - 1 - L  
 
-# Caso 2: Árvore de 3 nós (Completa - Esquerda)
-#      0
-#     / \
-#    0   0
-# Estrutura: [0, 0, 0]
-root2 = TreeNode(0, TreeNode(0), TreeNode(0))
-list2 = tree_to_list(root2)
-print(f"Árvore 3 Nós FBT: {list2}")
-# Esperado: [0, 0, 0]
+            left_trees = self.allPossibleFBT(L)
+            right_trees = self.allPossibleFBT(R)
+            
+            for left_root in left_trees:
+                for right_root in right_trees:
+                    root = TreeNode(0) 
+                    root.left = left_root
+                    root.right = right_root
+                    result.append(root)
+        
+        self.memo[N] = result
+        return result
+
+solution = Solution()
+fbt_list = solution.allPossibleFBT(7)
+print(f"Número de FBTs possíveis para N=7: {len(fbt_list)}")
